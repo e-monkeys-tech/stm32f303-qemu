@@ -1,0 +1,23 @@
+name: Build embedded rust project
+on: [push]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        rust: [stable, nightly]
+
+    steps:
+    - uses: hecrj/setup-rust-action@v1
+      with:
+        rust-version: ${{ matrix.rust }}
+    - uses: actions/checkout@master
+    - name: Apt dependencies for QEMU
+      run: apt-get install -y qemu-system-arm qemu-efi
+    - name: Specify target architecture
+      run: rustup target add thumbv7m-none-eabi
+    - name: Build target components
+      run: cargo build --target thumbv7m-none-eabi   
+    - name: Build binary
+      run: cargo build

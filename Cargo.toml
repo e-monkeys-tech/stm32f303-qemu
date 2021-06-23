@@ -1,8 +1,8 @@
 [package]
-authors = ["{{authors}}"]
+authors = ["pbackzk@gmail.com"]
 edition = "2018"
 readme = "README.md"
-name = "{{project-name}}"
+name = "stm32f303-qemu"
 version = "0.1.0"
 
 [dependencies]
@@ -26,7 +26,7 @@ panic-halt = "0.2.0"
 
 # this lets you use `cargo fix`!
 [[bin]]
-name = "{{project-name}}"
+name = "stm32f303-qemu"
 test = false
 bench = false
 
