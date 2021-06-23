@@ -14,7 +14,9 @@ jobs:
         rust-version: ${{ matrix.rust }}
     - uses: actions/checkout@master
     - name: Apt dependencies for QEMU
-      run: apt-get install -y qemu-system-arm qemu-efi
+      run: sudo apt get update
+    - name: Apt dependencies for QEMU
+      run: sudo apt install -y qemu-system-arm qemu-efi
     - name: Specify target architecture
       run: rustup target add thumbv7m-none-eabi
     - name: Build target components
