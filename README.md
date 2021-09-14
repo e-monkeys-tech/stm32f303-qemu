@@ -1,3 +1,5 @@
+Based on https://github.com/rust-embedded/cortex-m-quickstart master branch
+
 # `cortex-m-quickstart`
 
 > A template for building applications for ARM Cortex-M microcontrollers
